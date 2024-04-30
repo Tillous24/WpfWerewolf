@@ -1,0 +1,58 @@
+﻿<Window x:Class="WpfWerewolf.Presentation_Layer.Presenters.NewSession"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Werewolf Companion - New Game Setup" SizeToContent="WidthAndHeight" Height="306" Width="431">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <TextBlock Text="Number of Players:" VerticalAlignment="Center" Margin="5,0,320,0" Grid.ColumnSpan="2" Height="18"/>
+            <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtNumberOfPlayers" Text="" Width="50" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="5"/>
+
+        </Grid>
+
+
+        <Grid RenderTransformOrigin="0.512,2.543" Grid.ColumnSpan="2" Margin="3,34,3,149" Grid.Row="1">
+            <TextBlock Text="PLayer name:" VerticalAlignment="Center" Margin="5"/>
+            <TextBox x:Name="txtName" Text="" VerticalAlignment="Center" Margin="118,0,141,0"/>
+            <Button x:Name="btnAddPlayer" Grid.Row="2" Grid.Column="1" Content="+ Add Player" Click="BtnAddPlayer_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" />
+        </Grid>
+        <Grid Grid.ColumnSpan="2" Margin="3,97,2,10" Grid.Row="1">
+            <TextBlock Text="Selected Roles:" VerticalAlignment="Top" Margin="0,0,10,0"/>
+            <CheckBox x:Name="toggleCupid" Grid.Column="0" Content="Cupid" Margin="110,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="1.872,0.805" />
+            <CheckBox x:Name="toggleWitch" Grid.Column="0" Content="Witch" Margin="190,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" />
+            <CheckBox x:Name="toggleHunter" Grid.Column="0" Content="Hunter" Margin="270,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" />
+            <CheckBox x:Name="toggleKnight" Grid.Column="0" Content="Knight" Margin="110,0,0,56" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+            <CheckBox x:Name="toggleGirl" Grid.Row="2" Grid.Column="0" Content="Little Girl" Margin="190,0,0,56" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+            <CheckBox x:Name="toggleSeer" Grid.Row="2" Grid.Column="0" Content="Seer" Margin="270,0,0,56" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+            <CheckBox x:Name="toggleThieve" Grid.Column="0" Content="Thieve" Margin="110,0,0,53" HorizontalAlignment="Left" VerticalAlignment="Bottom" VerticalContentAlignment="Center" />
+            <CheckBox x:Name="togglePipper" Grid.Column="0" Content="Pipper" Margin="190,0,0,53" HorizontalAlignment="Left" VerticalAlignment="Bottom" VerticalContentAlignment="Center" />
+
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+
+            <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Visible" Margin="5">
+                <ItemsControl x:Name="itemsControlRoleDetails" RenderTransformOrigin="0.506,-1.133" />
+            </ScrollViewer>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="5">
+                <Button x:Name="btnCancel" Content="Cancel" Click="BtnCancel_Click" Margin="0, 0, 5, 0" />
+                <Button x:Name="btnOkay" Content="Okay" Click="BtnOkay_Click" Margin="0, 0, 5, 0" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

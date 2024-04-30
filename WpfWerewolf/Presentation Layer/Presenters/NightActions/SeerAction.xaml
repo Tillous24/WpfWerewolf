@@ -1,0 +1,18 @@
+﻿<Window x:Class="WpfWerewolf.Presentation_Layer.Presenters.NightActions.SeerAction"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfWerewolf.Presentation_Layer.Presenters.NightActions"
+        mc:Ignorable="d"
+        Title="SeerAction" Height="450" Width="800"
+        Background="#A9CAF7">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,56,0,0">
+            <Label FontSize="24" FontWeight="Semibold" Content="It's The Seer's turn."/>
+            <Image Source="/Image/seer.png" Width="150"/>
+            <WrapPanel x:Name="buttonsWrapPanel" Orientation="Horizontal" Margin="10 20"/>
+        </StackPanel>
+        
+    </Grid>
+</Window>
