@@ -80,5 +80,22 @@ namespace WpfWerewolf.UnitTests
             // Assert: Überprüfen, ob das erwartete Verhalten auftritt
             Assert.IsFalse(result); // Das Spiel sollte nicht enden, wenn alle Spieler verzaubert sind, aber es immer noch Werwölfe und andere Rollen gibt
         }
+
+        [TestMethod]
+        public void TestCheckGameEnded_AllWerewolvesKilled_GameShouldEnd()
+        {
+            // Arrange
+            GameController gameController = new GameController();
+            gameController.CurrentGameSession.AddPlayer(new Player("Player1"));
+            gameController.CurrentGameSession.AddPlayer(new Player("Player2"));
+            gameController.CurrentGameSession.AddRole(new Werewolf());
+            gameController.CurrentGameSession.AddRole(new Villager());
+
+            // Act
+            bool result = gameController.CheckGameEnded(true, false, false);
+
+            // Assert
+            Assert.IsTrue(result); // Game should end if all werewolves are killed
+        }
     }
 }
