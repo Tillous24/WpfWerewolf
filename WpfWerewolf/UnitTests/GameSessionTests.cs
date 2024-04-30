@@ -1,9 +1,7 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Data;
 using Werewolf_Companion.Domain_Model;
 
 namespace WpfWerewolf.UnitTests
@@ -12,11 +10,13 @@ namespace WpfWerewolf.UnitTests
     public class GameSessionTests
     {
         private GameSession _gameSession;
+        private Mock<Role> _mockRole;
 
         [TestInitialize]
         public void Setup()
         {
             _gameSession = new GameSession();
+            _mockRole = new Mock<Role>();
         }
 
         [TestMethod]
@@ -61,21 +61,14 @@ namespace WpfWerewolf.UnitTests
         public void TestAddRole()
         {
             // Arrange
-            Role role = new Werewolf();
+            _mockRole.Setup(x => x.name).Returns("Werewolf");
 
             // Act
-            _gameSession.AddRole(role);
+            _gameSession.AddRole(_mockRole.Object);
 
             // Assert
             List<Role> selectedRoles = _gameSession.SelectedRoles();
-            if (selectedRoles.Contains(role))
-            {
-                Console.WriteLine("AddRole Test Passed");
-            }
-            else
-            {
-                Console.WriteLine("AddRole Test Failed");
-            }
+            Assert.IsTrue(selectedRoles.Contains(_mockRole.Object));
         }
     }
 }

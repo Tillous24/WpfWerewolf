@@ -10,7 +10,7 @@ namespace WpfWerewolf.Domain_Model.Managers
     public class SessionManager
     {
         private GameSession _gameSession;
-
+        private PlayerManager _playerManager;
 
         
         public SessionManager(GameSession _gameSession)
@@ -32,7 +32,7 @@ namespace WpfWerewolf.Domain_Model.Managers
                 Player player = _gameSession.ActiveParticipants()[playerIndex];
 
                 // Assign the role to the player
-                player.AssignRole(role);
+                player.assignedRole = role;
 
                 // Move to the next player
                 playerIndex++;

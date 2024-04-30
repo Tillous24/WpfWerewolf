@@ -63,9 +63,10 @@ namespace WpfWerewolf.Presentation_Layer.Presenters
 
         private void BtnOkay_Click(object sender, RoutedEventArgs e)
         {
-            
-            
+
+            //AddSelectedRoles();
             // Check if any roles are selected
+            
             bool isRoleSelected = false;
 
             if (toggleCupid.IsChecked == true)
@@ -161,6 +162,36 @@ namespace WpfWerewolf.Presentation_Layer.Presenters
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private bool AddSelectedRoles()
+        {
+            bool isAnyRoleSelected = false;
+
+            // Dictionary zum Zuordnen von Toggle-Buttons zu Rollen
+            Dictionary<CheckBox, Role> toggleRoleMap = new Dictionary<CheckBox, Role>
+            {
+                { toggleCupid, new Cupid() },
+                { toggleWitch, new Witch() },
+                { toggleGirl, new LittleGirl() },
+                { toggleHunter, new Hunter() },
+                { toggleKnight, new Knight() },
+                { togglePipper, new Piper() },
+                { toggleSeer, new Seer() },
+                { toggleThieve, new Thieve() }
+            };
+
+            // Durchlaufe jedes Toggle-Button und füge die zugehörige Rolle hinzu, wenn der Button ausgewählt ist
+            foreach (var toggleButton in toggleRoleMap)
+            {
+                if (toggleButton.Key.IsChecked == true)
+                {
+                    _gameSession.AddRole(toggleButton.Value);
+                    isAnyRoleSelected = true;
+                }
+            }
+
+            return isAnyRoleSelected;
         }
     }
 }

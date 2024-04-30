@@ -23,10 +23,5 @@ namespace Werewolf_Companion.Domain_Model
             isAlive = true;
             isCharmed = false;
         }
-
-        public void AssignRole(Role role)
-        {
-            assignedRole = role;
-        }
     }
 }
